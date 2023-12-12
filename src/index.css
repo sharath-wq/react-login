@@ -1,13 +1,12 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tailwind.css or your CSS file */
+.gradient-pink-orange {
+    background-image: linear-gradient(to right, rgba(255, 130, 61, 1), rgba(248, 75, 126, 1));
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.gradient-orange-pink {
+    background-image: linear-gradient(to right, rgba(248, 75, 126, 1), rgba(255, 130, 61, 1));
 }
