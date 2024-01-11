@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import Input from './Input';
+import toast from 'react-hot-toast';
 
 const Body = () => {
+    const user = {
+        // change this
+        username: 'admin',
+        password: 'admin123',
+    };
+
     const [inputValue, setInputValue] = useState({
         password: '',
         username: '',
@@ -20,12 +27,6 @@ const Body = () => {
                 username: 'Username is required',
             }));
             return false;
-        } else if (username.length < 4) {
-            setInputErrors((prevErrors) => ({
-                ...prevErrors,
-                username: 'Username must be at least 4 characters long',
-            }));
-            return false;
         } else {
             setInputErrors((prevErrors) => ({
                 ...prevErrors,
@@ -41,12 +42,6 @@ const Body = () => {
             setInputErrors((prevErrors) => ({
                 ...prevErrors,
                 password: 'Password is required',
-            }));
-            return false;
-        } else if (password.length < 6) {
-            setInputErrors((prevErrors) => ({
-                ...prevErrors,
-                password: 'Password must be at least 6 characters long',
             }));
             return false;
         } else {
@@ -77,11 +72,16 @@ const Body = () => {
         const isPasswordValid = validatePassword();
 
         if (isUsernameValid && isPasswordValid) {
-            alert('Form submited successfully');
-            setInputValue({
-                username: '',
-                password: '',
-            });
+            if (username === user.username && password === user.password) {
+                toast.success('Logging Successful');
+                // impliment redirection logic here!
+                setInputValue({
+                    username: '',
+                    password: '',
+                });
+            } else {
+                toast.error('Incorrect credentials');
+            }
         }
     };
 
