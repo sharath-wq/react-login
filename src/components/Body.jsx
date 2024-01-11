@@ -78,11 +78,15 @@ const Body = () => {
 
         if (isUsernameValid && isPasswordValid) {
             alert('Form submited successfully');
+            setInputValue({
+                username: '',
+                password: '',
+            });
         }
     };
 
     return (
-        <form onSubmit={handleSubmit} className='w-full h-[85%] flex flex-col justify-center items-start gap-6 p-10'>
+        <form onSubmit={handleSubmit} className='w-full h-[85%] flex flex-col justify-center items-start gap-4 p-10'>
             <Input
                 type={'text'}
                 name={'username'}
